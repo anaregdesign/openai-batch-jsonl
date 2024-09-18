@@ -35,7 +35,15 @@ class TestLine(TestCase):
     logger.setLevel(DEBUG)
 
     def test_as_dict(self):
-        self.logger.debug(line.as_dict())
+        try:
+            self.logger.debug(line.as_dict())
+
+        except Exception as e:
+            self.fail(e)
 
     def test_as_json(self):
-        self.logger.debug(line.as_json())
+        try:
+            self.logger.debug(line.as_json())
+
+        except Exception as e:
+            self.fail(e)
