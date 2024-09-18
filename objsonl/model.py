@@ -100,7 +100,7 @@ class Line:
 class Batch:
     lines: List[Line]
 
-    def to_csv(self, path: str, ensure_ascii: bool = False):
+    def save(self, path: str, ensure_ascii: bool = False):
         with open(path, "w") as f:
             for line in self.lines:
                 f.write(line.as_json(ensure_ascii=ensure_ascii) + "\n")
