@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "openai-batch-jsonl"
+version = "0.0.1"
+description = ""
+authors = ["Hiroki Mizukami <hmizukami@microsoft.com>"]
+license = "MIT License"
+readme = "README.md"
+packages = [
+    { include = "objsonl", from = "." },
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
