@@ -40,8 +40,10 @@ class JsonlBuilder:
 
     def build_pandas(self, data: pd.DataFrame, custom_id: str, message: str, image_url: str = None) -> Batch:
         lines: List[Line] = []
-        for i, row in data.iterrows():
-            m: Message = UserMessage(row[message]) if image_url is None else UserMessageWithImage.of(
+        for i, row in data.fillna("").iterrows():
+            m: Message = UserMessage(
+                content=row[message]
+            ) if image_url is None else UserMessageWithImage.of(
                 text=row[message],
                 image_url=row[image_url],
                 detail=Detail.AUTO
