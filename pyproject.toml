@@ -5,6 +5,10 @@ description = ""
 authors = ["Hiroki Mizukami <hmizukami@microsoft.com>"]
 license = "MIT License"
 readme = "README.md"
+packages = [
+    { include = "objsonl", from = "." },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"

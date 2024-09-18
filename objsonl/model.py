@@ -15,6 +15,7 @@ __ALL__ = [
     "Content",
     "Body",
     "Line",
+    "Batch",
 ]
 
 
@@ -69,7 +70,7 @@ class UserMessageWithImage(Message):
     role: str = "user"
 
     @staticmethod
-    def of(text: str, image_url: str, detail: Detail) -> "UserMessageWithImage":
+    def of(text: str, image_url: str, detail: Detail = Detail.AUTO) -> "UserMessageWithImage":
         return UserMessageWithImage(
             [Content("text", text, None), Content("image_url", None, ImageURL(image_url, detail))])
 
@@ -89,7 +90,17 @@ class Line:
     body: Body
 
     def as_dict(self) -> dict:
-        return asdict(self)
+        return asdict(self, dict_factory=lambda x: {k: v for k, v in x if v is not None})
 
-    def as_json(self, **kwargs) -> str:
-        return json.dumps(self.as_dict(), **kwargs)
+    def as_json(self, ensure_ascii: bool = False) -> str:
+        return json.dumps(self.as_dict(), ensure_ascii=ensure_ascii)
+
+
+@dataclass(frozen=True)
+class Batch:
+    lines: List[Line]
+
+    def to_csv(self, path: str, ensure_ascii: bool = False):
+        with open(path, "w") as f:
+            for line in self.lines:
+                f.write(line.as_json(ensure_ascii=ensure_ascii) + "\n")

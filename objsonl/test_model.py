@@ -1,9 +1,13 @@
-from logging import Logger, getLogger
+from logging import Logger, getLogger, DEBUG
 from unittest import TestCase
 
-from objsonl.model import Line, Body, UserMessage, AssistantMessage, SystemMessage, UserMessageWithImage, Detail
-
-_logger: Logger = getLogger(__name__)
+from objsonl.model import AssistantMessage
+from objsonl.model import Body
+from objsonl.model import Detail
+from objsonl.model import Line
+from objsonl.model import SystemMessage
+from objsonl.model import UserMessage
+from objsonl.model import UserMessageWithImage
 
 line: Line = Line(
     custom_id="custom_id",
@@ -27,8 +31,11 @@ line: Line = Line(
 
 
 class TestLine(TestCase):
+    logger: Logger = getLogger(__name__)
+    logger.setLevel(DEBUG)
+
     def test_as_dict(self):
-        _logger.info(line.as_dict())
+        self.logger.debug(line.as_dict())
 
     def test_as_json(self):
-        _logger.info(line.as_json())
+        self.logger.debug(line.as_json())
