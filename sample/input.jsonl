@@ -1,0 +1,93 @@
+{
+  "custom_id": "id1",
+  "method": "POST",
+  "url": "/chat/completions",
+  "body": {
+    "model": "gpt-4o-batch",
+    "messages": [
+      {
+        "content": "You are the assistant who is talking to the user.",
+        "role": "system"
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "What's in the image?"
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "https://placehold.co/600x400/000000/FF0000/png",
+              "detail": "auto"
+            }
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "max_tokens": 4096
+  }
+}
+{
+  "custom_id": "id2",
+  "method": "POST",
+  "url": "/chat/completions",
+  "body": {
+    "model": "gpt-4o-batch",
+    "messages": [
+      {
+        "content": "You are the assistant who is talking to the user.",
+        "role": "system"
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "What's in the image?"
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "https://placehold.co/600x400/000000/00FF00/png",
+              "detail": "auto"
+            }
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "max_tokens": 4096
+  }
+}
+{
+  "custom_id": "id3",
+  "method": "POST",
+  "url": "/chat/completions",
+  "body": {
+    "model": "gpt-4o-batch",
+    "messages": [
+      {
+        "content": "You are the assistant who is talking to the user.",
+        "role": "system"
+      },
+      {
+        "content": [
+          {
+            "type": "text",
+            "text": "What's in the image?"
+          },
+          {
+            "type": "image_url",
+            "image_url": {
+              "url": "https://placehold.co/600x400/000000/0000FF/png",
+              "detail": "auto"
+            }
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "max_tokens": 4096
+  }
+}

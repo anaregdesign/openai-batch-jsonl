@@ -4,12 +4,12 @@ from unittest import TestCase
 from objsonl.model.input import AssistantMessage
 from objsonl.model.input import Body
 from objsonl.model.input import Detail
-from objsonl.model.input import Line
+from objsonl.model.input import InputLine
 from objsonl.model.input import SystemMessage
 from objsonl.model.input import UserMessage
 from objsonl.model.input import UserMessageWithImage
 
-line: Line = Line(
+line: InputLine = InputLine(
     custom_id="custom_id",
     method="POST",
     url="/chat/completions",

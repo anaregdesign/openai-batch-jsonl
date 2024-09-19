@@ -1,0 +1,54 @@
+{
+  "custom_id": "id1",
+  "response": {
+    "request_id": "",
+    "status_code": 400
+  },
+  "error": {
+    "code": null,
+    "message": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Value of max_tokens must be less than or equal to 4096.",
+        "param": null,
+        "type": null
+      }
+    }
+  }
+}
+{
+  "custom_id": "id2",
+  "response": {
+    "request_id": "",
+    "status_code": 400
+  },
+  "error": {
+    "code": null,
+    "message": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Value of max_tokens must be less than or equal to 4096.",
+        "param": null,
+        "type": null
+      }
+    }
+  }
+}
+{
+  "custom_id": "id3",
+  "response": {
+    "request_id": "",
+    "status_code": 400
+  },
+  "error": {
+    "code": null,
+    "message": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Value of max_tokens must be less than or equal to 4096.",
+        "param": null,
+        "type": null
+      }
+    }
+  }
+}

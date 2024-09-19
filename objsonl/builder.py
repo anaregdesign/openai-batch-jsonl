@@ -4,10 +4,10 @@ from typing import Optional
 
 import pandas as pd
 
-from objsonl.model.input import Batch
+from objsonl.model.input import BatchInput
 from objsonl.model.input import Body
 from objsonl.model.input import Detail
-from objsonl.model.input import Line
+from objsonl.model.input import InputLine
 from objsonl.model.input import Message
 from objsonl.model.input import SystemMessage
 from objsonl.model.input import UserMessage
@@ -25,10 +25,10 @@ class JsonlBuilder:
     max_tokens: int = None
     system_message: Optional[str] = None
 
-    def build(self, custom_id: str, messages: List[Message]) -> Line:
+    def build(self, custom_id: str, messages: List[Message]) -> InputLine:
         sys = [SystemMessage(self.system_message)] if self.system_message else []
 
-        return Line(
+        return InputLine(
             custom_id=custom_id,
             method="POST",
             url=self.url,
@@ -39,8 +39,8 @@ class JsonlBuilder:
             )
         )
 
-    def build_pandas(self, data: pd.DataFrame, custom_id: str, message: str, image_url: str = None) -> Batch:
-        lines: List[Line] = []
+    def build_pandas(self, data: pd.DataFrame, custom_id: str, message: str, image_url: str = None) -> BatchInput:
+        lines: List[InputLine] = []
         for i, row in data.fillna("").iterrows():
             m: Message = UserMessage(
                 content=row[message]
@@ -49,7 +49,7 @@ class JsonlBuilder:
                 image_url=row[image_url],
                 detail=Detail.AUTO
             )
-            line: Line = self.build(custom_id=row[custom_id], messages=[m])
+            line: InputLine = self.build(custom_id=row[custom_id], messages=[m])
             lines.append(line)
 
-        return Batch(lines)
+        return BatchInput(lines)
