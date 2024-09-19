@@ -2,8 +2,9 @@ from logging import Logger, getLogger, DEBUG
 from unittest import TestCase
 
 import pandas as pd
+
 from objsonl.builder import JsonlBuilder
-from objsonl.model import UserMessageWithImage
+from objsonl.model.input import UserMessageWithImage
 
 
 class TestJsonlBuilder(TestCase):

@@ -1,13 +1,13 @@
 from logging import Logger, getLogger, DEBUG
 from unittest import TestCase
 
-from objsonl.model import AssistantMessage
-from objsonl.model import Body
-from objsonl.model import Detail
-from objsonl.model import Line
-from objsonl.model import SystemMessage
-from objsonl.model import UserMessage
-from objsonl.model import UserMessageWithImage
+from objsonl.model.input import AssistantMessage
+from objsonl.model.input import Body
+from objsonl.model.input import Detail
+from objsonl.model.input import Line
+from objsonl.model.input import SystemMessage
+from objsonl.model.input import UserMessage
+from objsonl.model.input import UserMessageWithImage
 
 line: Line = Line(
     custom_id="custom_id",
