@@ -2,8 +2,9 @@ from logging import Logger, getLogger, DEBUG
 from unittest import TestCase
 
 import pandas as pd
+
 from objsonl.builder import JsonlBuilder
-from objsonl.model import UserMessageWithImage
+from objsonl.model.input import UserMessageWithImage
 
 
 class TestJsonlBuilder(TestCase):
@@ -11,8 +12,8 @@ class TestJsonlBuilder(TestCase):
     logger.setLevel(DEBUG)
     builder: JsonlBuilder = JsonlBuilder(
         url="/chat/completions",
-        model="gpt-4o",
-        max_tokens=8192,
+        model="gpt-4o-batch",
+        max_tokens=4096,
         system_message="You are the assistant who is talking to the user.",
     )
 
@@ -35,9 +36,9 @@ class TestJsonlBuilder(TestCase):
     def test_build_pandas(self):
         df: pd.DataFrame = pd.DataFrame(
             [
-                {"key": "id1", "text": "Hello, how are you?", "img": "https://example.com/image1.jpg"},
-                {"key": "id2", "text": "I'm good, how about you?", "img": "https://example.com/image2.jpg"},
-                {"key": "id3", "text": "What's in the image?", "img": "https://example.com/image3.jpg"},
+                {"key": "id1", "text": "What's in the image?", "img": "https://placehold.co/600x400/000000/FF0000/png"},
+                {"key": "id2", "text": "What's in the image?", "img": "https://placehold.co/600x400/000000/00FF00/png"},
+                {"key": "id3", "text": "What's in the image?", "img": "https://placehold.co/600x400/000000/0000FF/png"},
             ]
         )
 
