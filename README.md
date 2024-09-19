@@ -38,14 +38,14 @@ builder: JsonlBuilder = JsonlBuilder(
     url="/chat/completions",  # OpenAI's endpoint
     model="gpt-4o-batch",  # model name or deployment name
     max_tokens=4096,  # Maximum number of tokens to generate
-    system_message="You are the assistant who is talking to the user.",  # Common message for all prompts
+    system_message="You are the assistant who is describing input images",  # Common message for all prompts
 )
 
 batch = builder.build_pandas(
     data=df,
-    custom_id="key",  # Column name for custom id
+    custom_id="key",  # Column name for custom_id
     message="text",  # Column name for message
-    image_url="img",  # Column name for image url
+    image_url="img",  # Column name for image_url
 )
 batch.save("input.jsonl")
 ```
