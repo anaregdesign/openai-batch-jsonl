@@ -49,6 +49,7 @@ class TestJsonlBuilder(TestCase):
                 message="text",
                 image_url="img",
             )
+            batch.save("input.jsonl")
             for line in batch.lines:
                 self.logger.debug(line.as_json())
 
